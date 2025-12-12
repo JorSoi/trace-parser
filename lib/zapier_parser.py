@@ -17,7 +17,6 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         - zaps: List der zap metadata
     """
     
-    # Storage for results
     all_nodes = []
     all_edges = []
     zap_info = []
@@ -25,7 +24,7 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
     if "zaps" not in zapier_data:
         return {"nodes": [], "edges": [], "zaps": []}
     
-    # Helper: Get node action type
+    # Helper: node action type
     def get_action(node: Dict[str, Any]) -> Optional[str]:
         type_of = node.get("type_of", "").lower()
         action = node.get("action", "").lower()
@@ -41,21 +40,9 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         elif type_of == "filter":
             return "read"
         
-        # Fallback to action analysis
-        if "update" in action or "set" in action:
-            return "update"
-        if any(kw in action for kw in ["add", "create", "generate", "insert", "run", "make", "send"]):
-            return "write"
-        if "delete" in action or "remove" in action:
-            return "delete"
-        if any(kw in action for kw in ["get", "read", "evaluate", "watch", "retrieve", "list", "filter", "download", "search"]):
-            return "read"
-        if "trigger" in action or "hook" in action:
-            return "read"
-        
         return None
     
-    # Helper: Get service name
+    # Helper: service name
     def get_service(node: Dict[str, Any]) -> str:
         selected_api = node.get("selected_api", "")
         service = selected_api.split("CLIAPI")[0] if "CLIAPI" in selected_api else selected_api
@@ -69,7 +56,7 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         
         return "".join(result).strip() or "unknown"
     
-    # Helper: Get operation name
+    # Helper:  operation name
     def get_operation_name(node: Dict[str, Any]) -> str:
         action = node.get("action", "")
         if not action:
@@ -94,24 +81,19 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         
         return formatted if formatted else "Unknown Operation"
     
-    # Helper: Get node type
+    # Helper: node type
     def get_type(node: Dict[str, Any]) -> str:
-        selected_api = node.get("selected_api", "").lower()
-        action = node.get("action", "").lower()
+        action = node.get("action", "")
+
+        builtin_tools = {"filter"} #TODO einmal alle builtins auflisten, ggf. dynamisieren
         
-        if "filter" in selected_api or action == "filter":
-            return "tool"
-        
-        builtin_tools = {"filter", "formatter", "paths", "delay", "schedule", 
-                        "webhook", "email", "sms", "code", "digest", "looping"}
-        
-        for tool in builtin_tools:
-            if tool in selected_api:
+        for tool in builtin_tools: 
+            if tool in action:
                 return "tool"
         
         return "app"
     
-    # Process each zap
+    #Helper: zap infos
     for zap in zapier_data["zaps"]:
         zap_id = zap.get("id")
         zap_title = zap.get("title", "Untitled")
@@ -122,23 +104,24 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         
         nodes = zap["nodes"]
         
-        # Build parent-child relationships
+        # parent-child relationships
         node_ids = list(nodes.keys())
         root_nodes = [nid for nid in node_ids if nodes[nid].get("parent_id") is None]
         
-        # Parse nodes recursively
+        # nodes recursively parsen
         def parse_node_chain(node_id: str, prev_node_id: Optional[str] = None):
             if node_id not in nodes:
                 return
             
             node = nodes[node_id]
             
-            # Create parsed node
+            # node info
             parsed_node = {
                 "id": str(node_id),
                 "zap_id": zap_id,
-                "is_trigger": prev_node_id is None,
+                "is_trigger": prev_node_id is None, #ist nicht das root element immer trigger?
                 "action": get_action(node),
+                # object fehlt
                 "operation_name": get_operation_name(node),
                 "service": get_service(node),
                 "type": get_type(node),
@@ -147,7 +130,7 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
             
             all_nodes.append(parsed_node)
             
-            # Create edge if there's a previous node
+            # edge erstellen, wenn es eine node davor gibt
             if prev_node_id:
                 all_edges.append({
                     "from_node_id": str(prev_node_id),
@@ -155,19 +138,19 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
                     "zap_id": zap_id
                 })
             
-            # Find and parse child nodes
+            # child nodes parsen
             for child_id, child_node in nodes.items():
                 if child_node.get("parent_id") == int(node_id):
                     parse_node_chain(child_id, node_id)
         
-        # Start parsing from root nodes
+        # bei root nodes starten
         for root_id in root_nodes:
             parse_node_chain(root_id)
         
-        # Store zap info
+        # zap info
         zap_info.append({
             "id": zap_id,
-            "title": zap_title,
+            "title": zap_title, #gibt keine Description
             "status": zap_status,
             "node_count": len([n for n in all_nodes if n["zap_id"] == zap_id])
         })
@@ -188,7 +171,7 @@ def print_zapier_graph(parsed_data: Dict[str, Any]) -> None:
     
     for zap in zaps:
         zap_id = zap["id"]
-        print(f"\n📦 Zap: {zap['title']} (Status: {zap['status']})")
+        print(f"\n Zap: {zap['title']} (Status: {zap['status']})")
         print("=" * 60)
         
         zap_nodes = {n["id"]: n for n in nodes if n["zap_id"] == zap_id}
@@ -234,14 +217,12 @@ def print_zapier_graph(parsed_data: Dict[str, Any]) -> None:
 # Test
 if __name__ == "__main__":
 
-    # JSON laden (ein Ordner zurück, dann in data/)
+    # JSON laden
     with open('/Users/jonasreimer/Applications/trace-parser/data/zapier.json') as f:      
         zapier_json = json.load(f)
     
     # Parse
     result = parse_zapier(zapier_json)
-    
-    print (result)
-    
+
     # Visualisierung
     print_zapier_graph(result)
