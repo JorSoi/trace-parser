@@ -1,0 +1,280 @@
+{
+    "metadata": {
+        "version": "gdpr_v1"
+    },
+    "zaps": [
+        {
+            "id": 338400778,
+            "title": "v1",
+            "status": "off",
+            "nodes": {
+                "338400778": {
+                    "id": 338400778,
+                    "account_id": 15834101,
+                    "customuser_id": 15834889,
+                    "paused": true,
+                    "type_of": "read",
+                    "params": {},
+                    "meta": {
+                        "$editor": {
+                            "has_automatic_issues": true
+                        },
+                        "parammap": {}
+                    },
+                    "triple_stores": {
+                        "copied_from": null,
+                        "created_by": null,
+                        "polling_interval_override": 0,
+                        "block_and_release_limit_override": 0,
+                        "spread_tasks": 1
+                    },
+                    "folders": null,
+                    "parent_id": null,
+                    "root_id": null,
+                    "action": "hook_v2",
+                    "selected_api": "WebHookCLIAPI@1.0.37",
+                    "title": "v1",
+                    "authentication_id": null,
+                    "created_at": "2025-12-10T09:29:18+00:00",
+                    "last_changed": "2025-12-10T09:34:57+00:00"
+                },
+                "338400779": {
+                    "id": 338400779,
+                    "account_id": 15834101,
+                    "customuser_id": 15834889,
+                    "paused": true,
+                    "type_of": "write",
+                    "params": {
+                        "calendarid": "jonas.11r62@gmail.com",
+                        "eventid": "d3ojia7h4p431a87h253cb884s",
+                        "attendees": "/"
+                    },
+                    "meta": {
+                        "$editor": {
+                            "has_automatic_issues": false
+                        },
+                        "parammap": {
+                            "calendarid": "jonas.11r62@gmail.com",
+                            "eventid": "Train to Hamburg Hbf (Dec 20, 2025 10:51AM) "
+                        }
+                    },
+                    "triple_stores": {
+                        "copied_from": null,
+                        "created_by": null,
+                        "polling_interval_override": 0,
+                        "block_and_release_limit_override": 0,
+                        "spread_tasks": 1
+                    },
+                    "folders": null,
+                    "parent_id": 338400778,
+                    "root_id": 338400778,
+                    "action": "add_attendees",
+                    "selected_api": "GoogleCalendarCLIAPI@1.10.6",
+                    "title": null,
+                    "authentication_id": 60757387,
+                    "created_at": "2025-12-10T09:29:18+00:00",
+                    "last_changed": "2025-12-10T09:32:00+00:00"
+                },
+                "338401029": {
+                    "id": 338401029,
+                    "account_id": 15834101,
+                    "customuser_id": 15834889,
+                    "paused": true,
+                    "type_of": "write",
+                    "params": {},
+                    "meta": {
+                        "$editor": {
+                            "has_automatic_issues": true
+                        }
+                    },
+                    "triple_stores": {
+                        "copied_from": null,
+                        "created_by": null,
+                        "polling_interval_override": 0,
+                        "block_and_release_limit_override": 0,
+                        "spread_tasks": 1
+                    },
+                    "folders": null,
+                    "parent_id": 338400779,
+                    "root_id": 338400778,
+                    "action": "",
+                    "selected_api": "App224472CLIAPI@1.0.10",
+                    "title": null,
+                    "authentication_id": null,
+                    "created_at": "2025-12-10T09:30:53+00:00",
+                    "last_changed": "2025-12-10T09:32:00+00:00"
+                },
+                "338401069": {
+                    "id": 338401069,
+                    "account_id": 15834101,
+                    "customuser_id": 15834889,
+                    "paused": true,
+                    "type_of": "filter",
+                    "params": {
+                        "filter_criteria": [
+                            {
+                                "id": 8525643089160228,
+                                "group": 6595827245354517,
+                                "key": "338400779__attendees[]displayName",
+                                "value": "xxx",
+                                "match": "icontains",
+                                "action": "continue"
+                            }
+                        ]
+                    },
+                    "meta": {
+                        "$editor": {
+                            "has_automatic_issues": true
+                        }
+                    },
+                    "triple_stores": {
+                        "copied_from": null,
+                        "created_by": null,
+                        "polling_interval_override": 0,
+                        "block_and_release_limit_override": 0,
+                        "spread_tasks": 1
+                    },
+                    "folders": null,
+                    "parent_id": 338401029,
+                    "root_id": 338400778,
+                    "action": "filter",
+                    "selected_api": "FilterAPI",
+                    "title": null,
+                    "authentication_id": null,
+                    "created_at": "2025-12-10T09:31:15+00:00",
+                    "last_changed": "2025-12-10T09:32:00+00:00"
+                }
+            }
+        },
+        {
+            "id": 338401630,
+            "title": "Untitled Zap",
+            "status": "off",
+            "nodes": {
+                "338401630": {
+                    "id": 338401630,
+                    "account_id": 15834101,
+                    "customuser_id": 15834889,
+                    "paused": true,
+                    "type_of": "read",
+                    "params": {},
+                    "meta": {
+                        "$editor": {
+                            "has_automatic_issues": true
+                        }
+                    },
+                    "triple_stores": {
+                        "copied_from": null,
+                        "created_by": null,
+                        "polling_interval_override": 0,
+                        "block_and_release_limit_override": 0,
+                        "spread_tasks": 1
+                    },
+                    "folders": null,
+                    "parent_id": null,
+                    "root_id": null,
+                    "action": "",
+                    "selected_api": "DiscordCLIAPI@1.15.0",
+                    "title": "Untitled Zap",
+                    "authentication_id": null,
+                    "created_at": "2025-12-10T09:35:05+00:00",
+                    "last_changed": "2025-12-10T09:35:18+00:00"
+                },
+                "338401631": {
+                    "id": 338401631,
+                    "account_id": 15834101,
+                    "customuser_id": 15834889,
+                    "paused": true,
+                    "type_of": "write",
+                    "params": {},
+                    "meta": {
+                        "$editor": {
+                            "has_automatic_issues": true
+                        }
+                    },
+                    "triple_stores": {
+                        "copied_from": null,
+                        "created_by": null,
+                        "polling_interval_override": 0,
+                        "block_and_release_limit_override": 0,
+                        "spread_tasks": 1
+                    },
+                    "folders": null,
+                    "parent_id": 338401630,
+                    "root_id": 338401630,
+                    "action": "",
+                    "selected_api": "GoogleMailV2CLIAPI@2.7.0",
+                    "title": null,
+                    "authentication_id": null,
+                    "created_at": "2025-12-10T09:35:05+00:00",
+                    "last_changed": "2025-12-10T09:35:18+00:00"
+                }
+            }
+        },
+        {
+            "id": 338401757,
+            "title": "Untitled Zap",
+            "status": "off",
+            "nodes": {
+                "338401757": {
+                    "id": 338401757,
+                    "account_id": 15834101,
+                    "customuser_id": 15834889,
+                    "paused": true,
+                    "type_of": "read",
+                    "params": {},
+                    "meta": {
+                        "$editor": {
+                            "has_automatic_issues": true
+                        }
+                    },
+                    "triple_stores": {
+                        "copied_from": null,
+                        "created_by": null,
+                        "polling_interval_override": 0,
+                        "block_and_release_limit_override": 0,
+                        "spread_tasks": 1
+                    },
+                    "folders": "019b079d-d5ef-a05e-1f17-44b8ed3884ff",
+                    "parent_id": null,
+                    "root_id": null,
+                    "action": "",
+                    "selected_api": "ZapierMailCLIAPI@2.0.5",
+                    "title": "Untitled Zap",
+                    "authentication_id": null,
+                    "created_at": "2025-12-10T09:35:52+00:00",
+                    "last_changed": "2025-12-10T09:36:06+00:00"
+                },
+                "338401758": {
+                    "id": 338401758,
+                    "account_id": 15834101,
+                    "customuser_id": 15834889,
+                    "paused": true,
+                    "type_of": "write",
+                    "params": {},
+                    "meta": {
+                        "$editor": {
+                            "has_automatic_issues": true
+                        }
+                    },
+                    "triple_stores": {
+                        "copied_from": null,
+                        "created_by": null,
+                        "polling_interval_override": 0,
+                        "block_and_release_limit_override": 0,
+                        "spread_tasks": 1
+                    },
+                    "folders": null,
+                    "parent_id": 338401757,
+                    "root_id": 338401757,
+                    "action": "",
+                    "selected_api": "SlackCLIAPI@1.37.2",
+                    "title": null,
+                    "authentication_id": null,
+                    "created_at": "2025-12-10T09:35:52+00:00",
+                    "last_changed": "2025-12-10T09:36:06+00:00"
+                }
+            }
+        }
+    ]
+}
