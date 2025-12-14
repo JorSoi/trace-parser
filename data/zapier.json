@@ -1,0 +1,560 @@
+{
+  "metadata": {
+    "version": "gdpr_v1"
+  },
+  "zaps": [
+    {
+      "id": 332903460,
+      "title": "Untitled Zap",
+      "status": "on",
+      "nodes": {
+        "332903460": {
+          "id": 332903460,
+          "account_id": 25241695,
+          "customuser_id": 25337442,
+          "paused": false,
+          "type_of": "read",
+          "params": { "calendarid": "jorim.soika@gmx.de" },
+          "meta": {
+            "$editor": { "has_automatic_issues": false },
+            "parammap": { "calendarid": "Jorim" }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": null,
+          "root_id": null,
+          "action": "new_event",
+          "selected_api": "GoogleCalendarCLIAPI@1.10.4",
+          "title": "Untitled Zap",
+          "authentication_id": 60168594,
+          "created_at": "2025-11-11T22:39:10+00:00",
+          "last_changed": "2025-11-12T11:21:27+00:00"
+        },
+        "332903461": {
+          "id": 332903461,
+          "account_id": 25241695,
+          "customuser_id": 25337442,
+          "paused": true,
+          "type_of": "write",
+          "params": {},
+          "meta": { "$editor": { "has_automatic_issues": false } },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 332903460,
+          "root_id": 332903460,
+          "action": "branch",
+          "selected_api": "BranchingAPI",
+          "title": null,
+          "authentication_id": null,
+          "created_at": "2025-11-11T22:39:10+00:00",
+          "last_changed": "2025-11-12T11:21:27+00:00"
+        },
+        "332903739": {
+          "id": 332903739,
+          "account_id": 25241695,
+          "customuser_id": 25337442,
+          "paused": true,
+          "type_of": "filter",
+          "params": {
+            "color": "Heroine Blue",
+            "emoji": "A",
+            "path_eval_index": 0,
+            "filter_criteria": [
+              {
+                "id": 6367923494928658,
+                "group": 460677806082806,
+                "key": "332903460__location",
+                "value": "asdf",
+                "match": "icontains",
+                "action": "continue"
+              }
+            ]
+          },
+          "meta": {
+            "$editor": { "has_automatic_issues": false },
+            "stepTitle": "Path A"
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 332903461,
+          "root_id": 332903460,
+          "action": "filter",
+          "selected_api": "BranchingAPI",
+          "title": "Path A",
+          "authentication_id": null,
+          "created_at": "2025-11-11T22:40:35+00:00",
+          "last_changed": "2025-11-12T11:21:27+00:00"
+        },
+        "332903741": {
+          "id": 332903741,
+          "account_id": 25241695,
+          "customuser_id": 25337442,
+          "paused": true,
+          "type_of": "filter",
+          "params": {
+            "color": "Peru",
+            "emoji": "B",
+            "path_eval_index": 1,
+            "filter_criteria": [
+              {
+                "id": 4706392497518944,
+                "group": 7900949661652120,
+                "key": "332903460__id",
+                "value": "asdfffff",
+                "match": "icontains",
+                "action": "continue"
+              }
+            ]
+          },
+          "meta": {
+            "$editor": { "has_automatic_issues": false },
+            "stepTitle": "Path B"
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 332903461,
+          "root_id": 332903460,
+          "action": "filter",
+          "selected_api": "BranchingAPI",
+          "title": "Path B",
+          "authentication_id": null,
+          "created_at": "2025-11-11T22:40:35+00:00",
+          "last_changed": "2025-11-12T11:21:27+00:00"
+        },
+        "332903742": {
+          "id": 332903742,
+          "account_id": 25241695,
+          "customuser_id": 25337442,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "transform": "number.currency",
+            "currency_locale": "en_US",
+            "currency_format": "\u00a4#,##0.00",
+            "inputs": "{{=gives['332903460']['duration_minutes']}}",
+            "currency": "USD"
+          },
+          "meta": {
+            "$editor": { "has_automatic_issues": false },
+            "parammap": { "transform": "Format Currency" }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 332903741,
+          "root_id": 332903460,
+          "action": "number_line_item",
+          "selected_api": "ZapierFormatterCLIAPI@1.0.8",
+          "title": null,
+          "authentication_id": null,
+          "created_at": "2025-11-11T22:40:35+00:00",
+          "last_changed": "2025-11-12T11:21:27+00:00"
+        },
+        "332904887": {
+          "id": 332904887,
+          "account_id": 25241695,
+          "customuser_id": 25337442,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "table_id": "01K9THBJRMWQZ798E7K1HQ13GS",
+            "record_id": "01K9THBVDK9NPEE94778YJD9ND"
+          },
+          "meta": {
+            "$editor": { "has_automatic_issues": false },
+            "parammap": {
+              "table_id": "[Table] Untitled Zap Table",
+              "record_id": "asdf"
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 332903742,
+          "root_id": 332903460,
+          "action": "delete_record",
+          "selected_api": "TableCLIAPI@1.19.0",
+          "title": null,
+          "authentication_id": null,
+          "created_at": "2025-11-11T22:44:38+00:00",
+          "last_changed": "2025-11-12T11:21:27+00:00"
+        },
+        "332903740": {
+          "id": 332903740,
+          "account_id": 25241695,
+          "customuser_id": 25337442,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "table_id": "01K9THBJRMWQZ798E7K1HQ13GS",
+            "new__data__f1": "asdf"
+          },
+          "meta": {
+            "$editor": { "has_automatic_issues": false },
+            "parammap": { "table_id": "Untitled Zap Table" }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 332903739,
+          "root_id": 332903460,
+          "action": "create_record",
+          "selected_api": "TableCLIAPI@1.19.0",
+          "title": null,
+          "authentication_id": null,
+          "created_at": "2025-11-11T22:40:35+00:00",
+          "last_changed": "2025-11-12T11:21:27+00:00"
+        },
+        "333038252": {
+          "id": 333038252,
+          "account_id": 25241695,
+          "customuser_id": 25337442,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "applicationId": "apps7745kON7XgP56",
+            "tableName": "tblEDFdX9XIBHOd5K",
+            "rowId": "recI9LsabmyD4Cg12",
+            "fields__fldpFSVtaKGC0th4D": "Daniel"
+          },
+          "meta": {
+            "$editor": { "has_automatic_issues": true },
+            "parammap": {
+              "applicationId": "My Users",
+              "tableName": "Table 1",
+              "rowId": "recI9LsabmyD4Cg12"
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 332903740,
+          "root_id": 332903460,
+          "action": "updateRecord",
+          "selected_api": "AirtableCLIAPI@3.10.0",
+          "title": null,
+          "authentication_id": 60179870,
+          "created_at": "2025-11-12T11:21:27+00:00",
+          "last_changed": "2025-11-12T11:21:27+00:00"
+        }
+      }
+    },
+    {
+      "id": 338400778,
+      "title": "v1",
+      "status": "off",
+      "nodes": {
+        "338400778": {
+          "id": 338400778,
+          "account_id": 15834101,
+          "customuser_id": 15834889,
+          "paused": true,
+          "type_of": "read",
+          "params": {},
+          "meta": {
+            "$editor": {
+              "has_automatic_issues": true
+            },
+            "parammap": {}
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": null,
+          "root_id": null,
+          "action": "hook_v2",
+          "selected_api": "WebHookCLIAPI@1.0.37",
+          "title": "v1",
+          "authentication_id": null,
+          "created_at": "2025-12-10T09:29:18+00:00",
+          "last_changed": "2025-12-10T09:34:57+00:00"
+        },
+        "338400779": {
+          "id": 338400779,
+          "account_id": 15834101,
+          "customuser_id": 15834889,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "calendarid": "jonas.11r62@gmail.com",
+            "eventid": "d3ojia7h4p431a87h253cb884s",
+            "attendees": "/"
+          },
+          "meta": {
+            "$editor": {
+              "has_automatic_issues": false
+            },
+            "parammap": {
+              "calendarid": "jonas.11r62@gmail.com",
+              "eventid": "Train to Hamburg Hbf (Dec 20, 2025 10:51AM) "
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 338400778,
+          "root_id": 338400778,
+          "action": "add_attendees",
+          "selected_api": "GoogleCalendarCLIAPI@1.10.6",
+          "title": null,
+          "authentication_id": 60757387,
+          "created_at": "2025-12-10T09:29:18+00:00",
+          "last_changed": "2025-12-10T09:32:00+00:00"
+        },
+        "338401029": {
+          "id": 338401029,
+          "account_id": 15834101,
+          "customuser_id": 15834889,
+          "paused": true,
+          "type_of": "write",
+          "params": {},
+          "meta": {
+            "$editor": {
+              "has_automatic_issues": true
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 338400779,
+          "root_id": 338400778,
+          "action": "",
+          "selected_api": "App224472CLIAPI@1.0.10",
+          "title": null,
+          "authentication_id": null,
+          "created_at": "2025-12-10T09:30:53+00:00",
+          "last_changed": "2025-12-10T09:32:00+00:00"
+        },
+        "338401069": {
+          "id": 338401069,
+          "account_id": 15834101,
+          "customuser_id": 15834889,
+          "paused": true,
+          "type_of": "filter",
+          "params": {
+            "filter_criteria": [
+              {
+                "id": 8525643089160228,
+                "group": 6595827245354517,
+                "key": "338400779__attendees[]displayName",
+                "value": "xxx",
+                "match": "icontains",
+                "action": "continue"
+              }
+            ]
+          },
+          "meta": {
+            "$editor": {
+              "has_automatic_issues": true
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 338401029,
+          "root_id": 338400778,
+          "action": "filter",
+          "selected_api": "FilterAPI",
+          "title": null,
+          "authentication_id": null,
+          "created_at": "2025-12-10T09:31:15+00:00",
+          "last_changed": "2025-12-10T09:32:00+00:00"
+        }
+      }
+    },
+    {
+      "id": 338401630,
+      "title": "Untitled Zap",
+      "status": "off",
+      "nodes": {
+        "338401630": {
+          "id": 338401630,
+          "account_id": 15834101,
+          "customuser_id": 15834889,
+          "paused": true,
+          "type_of": "read",
+          "params": {},
+          "meta": {
+            "$editor": {
+              "has_automatic_issues": true
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": null,
+          "root_id": null,
+          "action": "",
+          "selected_api": "DiscordCLIAPI@1.15.0",
+          "title": "Untitled Zap",
+          "authentication_id": null,
+          "created_at": "2025-12-10T09:35:05+00:00",
+          "last_changed": "2025-12-10T09:35:18+00:00"
+        },
+        "338401631": {
+          "id": 338401631,
+          "account_id": 15834101,
+          "customuser_id": 15834889,
+          "paused": true,
+          "type_of": "write",
+          "params": {},
+          "meta": {
+            "$editor": {
+              "has_automatic_issues": true
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 338401630,
+          "root_id": 338401630,
+          "action": "",
+          "selected_api": "GoogleMailV2CLIAPI@2.7.0",
+          "title": null,
+          "authentication_id": null,
+          "created_at": "2025-12-10T09:35:05+00:00",
+          "last_changed": "2025-12-10T09:35:18+00:00"
+        }
+      }
+    },
+    {
+      "id": 338401757,
+      "title": "Untitled Zap",
+      "status": "off",
+      "nodes": {
+        "338401757": {
+          "id": 338401757,
+          "account_id": 15834101,
+          "customuser_id": 15834889,
+          "paused": true,
+          "type_of": "read",
+          "params": {},
+          "meta": {
+            "$editor": {
+              "has_automatic_issues": true
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": "019b079d-d5ef-a05e-1f17-44b8ed3884ff",
+          "parent_id": null,
+          "root_id": null,
+          "action": "",
+          "selected_api": "ZapierMailCLIAPI@2.0.5",
+          "title": "Untitled Zap",
+          "authentication_id": null,
+          "created_at": "2025-12-10T09:35:52+00:00",
+          "last_changed": "2025-12-10T09:36:06+00:00"
+        },
+        "338401758": {
+          "id": 338401758,
+          "account_id": 15834101,
+          "customuser_id": 15834889,
+          "paused": true,
+          "type_of": "write",
+          "params": {},
+          "meta": {
+            "$editor": {
+              "has_automatic_issues": true
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "folders": null,
+          "parent_id": 338401757,
+          "root_id": 338401757,
+          "action": "",
+          "selected_api": "SlackCLIAPI@1.37.2",
+          "title": null,
+          "authentication_id": null,
+          "created_at": "2025-12-10T09:35:52+00:00",
+          "last_changed": "2025-12-10T09:36:06+00:00"
+        }
+      }
+    }
+  ]
+}
