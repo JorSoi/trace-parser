@@ -1,6 +1,9 @@
 import json
 from typing import List, Dict, Any, Optional, Set
 
+from pyparsing import Path
+import re
+
 
 
 def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -31,6 +34,14 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         
         if type_of == "read":
             return "read"
+        elif type_of == "read_bulk":
+            return "read"
+        elif type_of == "search":
+            return "read"
+        elif type_of == "search_or_write": #Added according to zapier docs
+            return "write"
+        elif type_of == "search_and_write":
+            return "write"
         elif type_of == "write":
             return "write"
         elif type_of == "update":
@@ -47,11 +58,13 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         selected_api = node.get("selected_api", "")
         service = selected_api.split("CLIAPI")[0] if "CLIAPI" in selected_api else selected_api
         service = service.split("@")[0]
+        service = re.sub(r'(?i)v\d+$', '', service).strip() # remove trailing version markers like V2, v3, etc.
+        service = re.sub(r'(?i)api$', '', service).strip()  # remove trailing "API"
         
         result = []
         for char in service:
             if char.isupper() and result:
-                result.append(" ")
+                result.append("-") #Delimit multi-word service names with hyphen
             result.append(char.lower())
         
         return "".join(result).strip() or "unknown"
@@ -61,31 +74,30 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         action = node.get("action", "")
         if not action:
             return "Unknown Operation"
-        
-        words = action.replace("_", " ").strip()
-        result = []
-        current_word = []
-        
-        for char in words:
-            if char.isupper() and current_word:
-                result.append("".join(current_word))
-                current_word = [char]
-            else:
-                current_word.append(char)
-        
-        if current_word:
-            result.append("".join(current_word))
-        
-        filtered = [word for word in result if word.lower() not in ["trigger", "action", "v2"]]
-        formatted = " ".join(word.capitalize() for word in " ".join(filtered).split())
-        
-        return formatted if formatted else "Unknown Operation"
+
+        parts = action.replace("_", " ").split()
+
+        # drop generic words and version tokens like v2, v10, v3
+        filtered = [
+            p for p in parts
+            if p.lower() not in {"trigger", "action"}
+            and not re.fullmatch(r"v\d+", p.lower())
+        ]
+
+        if not filtered:
+            return "Unknown Operation"
+
+        return " ".join(p.capitalize() for p in filtered)
     
     # Helper: node type
     def get_type(node: Dict[str, Any]) -> str:
         action = node.get("action", "")
 
         builtin_tools = {"filter"} #TODO einmal alle builtins auflisten, ggf. dynamisieren
+
+        # check for router
+        if get_operation_name(node) == "Branch":
+                return "router"
         
         for tool in builtin_tools: 
             if tool in action:
@@ -217,12 +229,19 @@ def print_zapier_graph(parsed_data: Dict[str, Any]) -> None:
 # Test
 if __name__ == "__main__":
 
-    # JSON laden
-    with open('/Users/jonasreimer/Applications/trace-parser/data/zapier.json') as f:      
-        zapier_json = json.load(f)
+    path = Path("data/zapier.json")
+if not path.exists():
+    raise FileNotFoundError(path)
+
+with path.open() as f:
+    zapier_json = json.load(f)
+
+
     
     # Parse
     result = parse_zapier(zapier_json)
+
+    # print(json.dumps(result.get("nodes"), indent=2))
 
     # Visualisierung
     print_zapier_graph(result)
