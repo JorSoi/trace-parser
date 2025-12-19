@@ -218,7 +218,7 @@ function printGraphAscii(edges: Edge[], nodes: ParsedNode[]): void {
   // 3. Identify Roots
   const roots = Array.from(allNodes).filter((node) => !children.has(node));
 
-  console.log("\n📦 Flow Visualization:");
+  console.log("\n📦 Scenario (Make) Visualization:");
   console.log("===================================");
 
   if (roots.length === 0 && edges.length > 0) {
