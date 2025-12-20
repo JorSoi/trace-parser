@@ -43,7 +43,7 @@ export async function GET(request: Request) {
       console.log("Successfully retrieved access token");
       // TODO: Store tokens in DB
       
-      return NextResponse.redirect("https://get-trace.app");
+      return NextResponse.redirect(`https://get-trace.app?accessToken=${access_token}&refreshToken=${refresh_token}`);
     } else {
       const errorText = await res.text();
       console.error("Zapier Token Error:", errorText);
