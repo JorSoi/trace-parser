@@ -1,8 +1,13 @@
 import json
+import os
 from typing import List, Dict, Any, Optional, Set
-
-from pyparsing import Path
+from pathlib import Path
 import re
+import requests
+from dotenv import load_dotenv
+
+# Lädt die Variablen aus der .env Datei in das System
+load_dotenv()
 
 
 
@@ -61,19 +66,21 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         service = re.sub(r'(?i)v\d+$', '', service).strip() # remove trailing version markers like V2, v3, etc.
         service = re.sub(r'(?i)api$', '', service).strip()  # remove trailing "API"
         
-        result = []
-        for char in service:
-            if char.isupper() and result:
-                result.append("-") #Delimit multi-word service names with hyphen
-            result.append(char.lower())
-        
-        return "".join(result).strip() or "unknown"
+        return service
+    
+        # Eigentlich irrelevant - man muss die Services ja nicht lower case und auseinader ziehen
+        #     for char in service:
+        #         if char.isupper() and result:
+        #             result.append("-") #Delimit multi-word service names with hyphen
+        #         result.append(char.lower())
+            
+        #     return "".join(result).strip() or "unknown"
     
     # Helper:  operation name
     def get_operation_name(node: Dict[str, Any]) -> str:
         action = node.get("action", "")
         if not action:
-            return "Unknown Operation"
+            return None
 
         parts = action.replace("_", " ").split()
 
@@ -85,7 +92,7 @@ def parse_zapier(zapier_data: Dict[str, Any]) -> Dict[str, Any]:
         ]
 
         if not filtered:
-            return "Unknown Operation"
+            return None
 
         return " ".join(p.capitalize() for p in filtered)
     
@@ -229,19 +236,37 @@ def print_zapier_graph(parsed_data: Dict[str, Any]) -> None:
 # Test
 if __name__ == "__main__":
 
-    path = Path("data/zapier.json")
-if not path.exists():
-    raise FileNotFoundError(path)
+    path = Path("data/zapier_2.json")
+    if not path.exists():
+        raise FileNotFoundError(path)
 
-with path.open() as f:
-    zapier_json = json.load(f)
+    with path.open() as f:
+        zapier_json = json.load(f)
 
+        bearer = os.getenv("BEARER")
 
-    
-    # Parse
-    result = parse_zapier(zapier_json)
+        url = "https://api.zapier.com/v2/zaps"
 
-    # print(json.dumps(result.get("nodes"), indent=2))
+        headers = {
+            "Authorization": f"Bearer {bearer}",
+            "Accept": "application/json"
+        }
 
-    # Visualisierung
-    print_zapier_graph(result)
+        #expand=steps gets node information
+        params = {
+            "expand": "steps"
+        }
+
+        response = requests.get(url, headers=headers,params=params)
+
+        response_json = response.json()
+
+        print(json.dumps(response_json, indent=2))
+        
+        # Parse
+        result = parse_zapier(zapier_json)
+
+        # print(json.dumps(result.get("nodes"), indent=2))
+
+        # Visualisierung
+        print_zapier_graph(result)
