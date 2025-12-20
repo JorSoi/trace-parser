@@ -1,40 +1,56 @@
-import { access } from "fs";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url);
+  const { searchParams } = new URL(request.url);
 
   const authorization_code = searchParams.get("code");
   const state = searchParams.get("state");
-  console.log(
-    `CB received using code ${authorization_code} and state ${state}`,
-  );
 
-  if (!authorization_code || !state) {
-    throw new Error("Request parameters are not complete");
+  if (!authorization_code) {
+    return NextResponse.json(
+      { error: "Missing authorization_code" }, 
+      { status: 400 }
+    );
   }
 
-  console.log(`Requesting access_token with ${process.env.ZAPIER_OAUTH_CLIENT_ID}:${process.env.ZAPIER_OAUTH_CLIENT_SECRET}`);
+  // 1. Construct the Body as FormData
+  // This satisfies Zapier's "multipart/form-data" requirement.
+  const formData = new FormData();
+  formData.append("grant_type", "authorization_code");
+  formData.append("code", authorization_code);
+  formData.append("redirect_uri", process.env.ZAPIER_OAUTH_REDIRECT_URI as string);
 
-  const res = await fetch("https://zapier.com/oauth/token/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "multipart/form-data",
-      Authorization:
-        "Basic " +
-        btoa(
-          `${process.env.ZAPIER_OAUTH_CLIENT_ID}:${process.env.ZAPIER_OAUTH_CLIENT_SECRET}`,
-        ),
-    },
-    body: `grant_type=authorization_code&code=${authorization_code}&redirect_uri=${process.env.ZAPIER_OAUTH_REDIRECT_URI}`,
-  });
+  // 2. Prepare Basic Auth Header
+  const clientId = process.env.NEXT_PUBLIC_ZAPIER_OAUTH_CLIENT_ID;
+  const clientSecret = process.env.ZAPIER_OAUTH_CLIENT_SECRET;
+  const authHeader = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
 
-  if (res.ok) {
-    const { access_token, refresh_token } = await res.json();
-    console.log("Retrieved access token: " + access_token);
-    return NextResponse.redirect(`https://get-trace.app`);
-  } else {
-    console.log(res.body);
+  try {
+    const res = await fetch("https://zapier.com/oauth/token/", {
+      method: "POST",
+      headers: {
+        // IMPORTANT: Do NOT manually set "Content-Type" here.
+        // Fetch detects the FormData body and sets "Content-Type: multipart/form-data; boundary=..." automatically.
+        Authorization: `Basic ${authHeader}`,
+      },
+      body: formData,
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      const { access_token, refresh_token } = data;
+
+      console.log("Successfully retrieved access token");
+      // TODO: Store tokens in DB
+      
+      return NextResponse.redirect("https://get-trace.app");
+    } else {
+      const errorText = await res.text();
+      console.error("Zapier Token Error:", errorText);
+      return NextResponse.redirect("https://get-trace.app/auth/callback/error");
+    }
+  } catch (error) {
+    console.error("Internal Server Error:", error);
+    return NextResponse.redirect("https://get-trace.app/auth/callback/error");
   }
-  return NextResponse.redirect(`https://get-trace.app/auth/callback/error`);
 }
