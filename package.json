@@ -12,7 +12,7 @@
     "n8n-core": "^2.1.1",
     "n8n-nodes-base": "^2.1.1",
     "n8n-workflow": "^2.1.0",
-    "next": "16.0.5",
+    "next": "16.0.10",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "react": "19.2.0",
     "react-dom": "19.2.0"
