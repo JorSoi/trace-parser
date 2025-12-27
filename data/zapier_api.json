@@ -1,0 +1,1229 @@
+{
+    "links": {
+        "next": "https://api.zapier.com/v2/zaps?limit=10&offset=10",
+        "prev": null
+    },
+    "meta": {
+        "count": 10,
+        "offset": 0,
+        "limit": 10
+    },
+    "data": [
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000339400731",
+            "is_enabled": false,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-16T11:25:10+00:00",
+            "title": "Google Ads → HubSpot [Unified lead capture]",
+            "links": {
+                "html_editor": "https://zapier.com/editor/339400731?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": {
+                        "id": "core:xmn935P7",
+                        "key": "new_lead_form_entry_polling",
+                        "app": {
+                            "id": "f2903db2-6259-4223-be89-163dd06cd66f",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/4058ec8b47ad751cbd39bd686cf4eab7.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": "https://zapier.com/switch-account?account=15834101&next=https%3A%2F%2Fzapier.com%2Fengine%2Fauth%2Fstart%2FGoogleAdsCLIAPI%25406.7.0%3Fredirect%3Dhttps%253A%252F%252Fapi.zapier.com%252Fv2%252Fauthentications%252Fredirect"
+                            },
+                            "action_types": [
+                                "READ",
+                                "SEARCH",
+                                "SEARCH_OR_WRITE",
+                                "WRITE"
+                            ],
+                            "title": "Google Ads",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/4058ec8b47ad751cbd39bd686cf4eab7.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/4058ec8b47ad751cbd39bd686cf4eab7.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/4058ec8b47ad751cbd39bd686cf4eab7.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/4058ec8b47ad751cbd39bd686cf4eab7.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "4285F4",
+                            "categories": [
+                                {
+                                    "slug": "ads-conversion"
+                                },
+                                {
+                                    "slug": "google"
+                                }
+                            ],
+                            "description": "Google Ads (formerly Google AdWords) is an online advertising platform developed by Google, where advertisers pay to display brief advertisements, service offerings, product listings, video content, and generate mobile application installs within the Google ad network to web users."
+                        },
+                        "type": "action",
+                        "action_type": "READ",
+                        "is_instant": false,
+                        "title": "New Lead Form Entry",
+                        "description": "Triggers whenever a new lead is created from a Lead Form Extension."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "leadFormId": "70934594041",
+                        "mainAccountId": "YOUR_MANAGER_ID",
+                        "managedAccountId": "YOUR_AD_ACCOUNT_ID"
+                    },
+                    "title": null
+                },
+                {
+                    "action": {
+                        "id": "core:xmn9ZNv7",
+                        "key": "call_subzap",
+                        "app": {
+                            "id": "92b8dce2-2a7b-4f88-864a-6c44c17c99b1",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Sub-Zap by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Build reusable Zap components and systems by building and calling \"Sub-Zaps\"."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Call a Sub-Zap",
+                        "description": "Used outside of a Sub-Zap, this will activate a Sub-Zap, which should contain both the \"Start a Sub-Zap\" trigger and \"Return from a Sub-Zap\" action."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "zap_id": "339400711",
+                        "account_id": "15834101",
+                        "Contact Email": "{{339400731__work_email}}",
+                        "Contact information: Full Name": "",
+                        "Contact information: Job Title": "",
+                        "Contact information: Last Name": "{{339400731__last_name}}",
+                        "Contact information: First Name": "{{339400731__first_name}}",
+                        "Contact information: Company Name": "{{339400731__company_name}}",
+                        "Contact information: Phone Number": "",
+                        "Contact information: Employment Role": "{{339400731__what_is_your_job_role?}}",
+                        "Social media information: LinkedIn URL": "",
+                        "Contact information: Number of Employees": "{{339400731__what_size_is_your_company?}}",
+                        "Contact information: Employment Seniority": ""
+                    },
+                    "title": null
+                }
+            ]
+        },
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000339400730",
+            "is_enabled": false,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-16T11:25:10+00:00",
+            "title": "Webflow → HubSpot [Unified lead capture]",
+            "links": {
+                "html_editor": "https://zapier.com/editor/339400730?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": {
+                        "id": "core:8B8O8Jx6",
+                        "key": "form_submission",
+                        "app": {
+                            "id": "40206f29-4d7e-4942-9f18-638e90ce0c2c",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/f003c553c8cd9f05a0b56bcf2a873fcc.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": "https://zapier.com/switch-account?account=15834101&next=https%3A%2F%2Fzapier.com%2Fengine%2Fauth%2Fstart%2FWebflowCLIAPI%25403.5.1%3Fredirect%3Dhttps%253A%252F%252Fapi.zapier.com%252Fv2%252Fauthentications%252Fredirect"
+                            },
+                            "action_types": [
+                                "READ",
+                                "SEARCH",
+                                "WRITE"
+                            ],
+                            "title": "Webflow",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/f003c553c8cd9f05a0b56bcf2a873fcc.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/f003c553c8cd9f05a0b56bcf2a873fcc.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/f003c553c8cd9f05a0b56bcf2a873fcc.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/f003c553c8cd9f05a0b56bcf2a873fcc.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "7257b4",
+                            "categories": [
+                                {
+                                    "slug": "cms"
+                                }
+                            ],
+                            "description": "Design and build professional websites with a CMS from scratch online with Webflow."
+                        },
+                        "type": "action",
+                        "action_type": "READ",
+                        "is_instant": true,
+                        "title": "New Form Submission",
+                        "description": "Triggers when a new form submission occurs"
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "form_id": "",
+                        "site_id": ""
+                    },
+                    "title": null
+                },
+                {
+                    "action": {
+                        "id": "core:xmn9ZNv7",
+                        "key": "call_subzap",
+                        "app": {
+                            "id": "92b8dce2-2a7b-4f88-864a-6c44c17c99b1",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Sub-Zap by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Build reusable Zap components and systems by building and calling \"Sub-Zaps\"."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Call a Sub-Zap",
+                        "description": "Used outside of a Sub-Zap, this will activate a Sub-Zap, which should contain both the \"Start a Sub-Zap\" trigger and \"Return from a Sub-Zap\" action."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "zap_id": "339400711",
+                        "account_id": "15834101",
+                        "Contact Email": "{{339400730__formResponse__Email}}",
+                        "Contact activity: Message": "",
+                        "Contact information: Full Name": "{{339400730__formResponse__Name}}",
+                        "Contact information: Job Title": "",
+                        "Contact information: Last Name": "",
+                        "Contact information: First Name": "",
+                        "Contact information: Employment Role": ""
+                    },
+                    "title": null
+                }
+            ]
+        },
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000339400729",
+            "is_enabled": false,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-16T11:25:10+00:00",
+            "title": "ALC - LinkedIn Lead Gen form submissions --> Hubspot",
+            "links": {
+                "html_editor": "https://zapier.com/editor/339400729?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": {
+                        "id": "core:Q7db1AK6",
+                        "key": "organic_form_response",
+                        "app": {
+                            "id": "49a68c65-75b5-4a48-aa73-c789d2673de5",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/developer/82e76b99c17c252653cee811b4e46123.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": "https://zapier.com/switch-account?account=15834101&next=https%3A%2F%2Fzapier.com%2Fengine%2Fauth%2Fstart%2FLinkedInLeadGenFormsCLIAPI%25403.1.14%3Fredirect%3Dhttps%253A%252F%252Fapi.zapier.com%252Fv2%252Fauthentications%252Fredirect"
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "LinkedIn Ads",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/developer/82e76b99c17c252653cee811b4e46123.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/developer/82e76b99c17c252653cee811b4e46123.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/developer/82e76b99c17c252653cee811b4e46123.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/developer/82e76b99c17c252653cee811b4e46123.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "0077b5",
+                            "categories": [
+                                {
+                                    "slug": "ads-conversion"
+                                },
+                                {
+                                    "slug": "microsoft"
+                                }
+                            ],
+                            "description": "LinkedIn Ads allows marketers to collect even more quality leads from their ads and events on LinkedIn with seamless pre-filled forms."
+                        },
+                        "type": "action",
+                        "action_type": "READ",
+                        "is_instant": true,
+                        "title": "New Lead Gen Form Response (Organic Content)",
+                        "description": "Triggers when you receive a new form response tied to a Company Page, Product Page, or Event."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "lead_type": "COMPANY",
+                        "get_campaign": "true",
+                        "get_creative": "true",
+                        "organization_id": ""
+                    },
+                    "title": "New Lead Gen Form Response in LinkedIn Ads"
+                },
+                {
+                    "action": {
+                        "id": "core:xmn9ZNv7",
+                        "key": "call_subzap",
+                        "app": {
+                            "id": "92b8dce2-2a7b-4f88-864a-6c44c17c99b1",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Sub-Zap by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Build reusable Zap components and systems by building and calling \"Sub-Zaps\"."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Call a Sub-Zap",
+                        "description": "Used outside of a Sub-Zap, this will activate a Sub-Zap, which should contain both the \"Start a Sub-Zap\" trigger and \"Return from a Sub-Zap\" action."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "zap_id": "339400711",
+                        "account_id": "15834101",
+                        "Contact Email": "{{339400729__questions__3}}",
+                        "Contact information: Job Title": "{{339400729__questions__8}}",
+                        "Contact information: Last Name": "{{339400729__questions__2}}",
+                        "Contact information: First Name": "{{339400729__questions__1}}",
+                        "Contact information: Phone Number": "{{339400729__questions__5}}",
+                        "Contact information: Employment Role": "",
+                        "Social media information: LinkedIn URL": "{{339400729__questions__4}}",
+                        "Contact information: Number of Employees": "",
+                        "Web analytics history: Latest Traffic Source Date": ""
+                    },
+                    "title": null
+                }
+            ]
+        },
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000339400728",
+            "is_enabled": false,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-16T11:25:10+00:00",
+            "title": "TikTok → HubSpot [Unified lead capture]",
+            "links": {
+                "html_editor": "https://zapier.com/editor/339400728?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": {
+                        "id": "core:e7q1AN57",
+                        "key": "new_leads_integration",
+                        "app": {
+                            "id": "1ab79dca-1b0b-42fb-b363-4d4168624d75",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/developer_cli/4b05015a22b1b3431ca673a6a8f6cc6a_2.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": "https://zapier.com/switch-account?account=15834101&next=https%3A%2F%2Fzapier.com%2Fengine%2Fauth%2Fstart%2FTikTokLeadGenerationCLIAPI%25403.2.5%3Fredirect%3Dhttps%253A%252F%252Fapi.zapier.com%252Fv2%252Fauthentications%252Fredirect"
+                            },
+                            "action_types": [
+                                "READ"
+                            ],
+                            "title": "TikTok Lead Generation",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/developer_cli/4b05015a22b1b3431ca673a6a8f6cc6a_2.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/developer_cli/4b05015a22b1b3431ca673a6a8f6cc6a_2.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/developer_cli/4b05015a22b1b3431ca673a6a8f6cc6a_2.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/developer_cli/4b05015a22b1b3431ca673a6a8f6cc6a_2.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "FE4166",
+                            "categories": [
+                                {
+                                    "slug": "ads-conversion"
+                                }
+                            ],
+                            "description": "TikTok's Lead Generation enables businesses of all sizes to create seamless interactions to reach prospects in order to convert them into potential customers."
+                        },
+                        "type": "action",
+                        "action_type": "READ",
+                        "is_instant": true,
+                        "title": "New Lead",
+                        "description": "Triggers when a new lead is created."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "form_id": "",
+                        "library_id": ""
+                    },
+                    "title": null
+                },
+                {
+                    "action": {
+                        "id": "core:q7M9gXv7",
+                        "key": "util_line_item",
+                        "app": null,
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Utilities",
+                        "description": "Various utilities like \"choose value from list\" or \"look up in table\" (with line-item support)."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "inputs": [
+                            "{{_GEN_1__work_email}}",
+                            "{{_GEN_1__email}}"
+                        ],
+                        "default": "",
+                        "operation": "first",
+                        "transform": "util.choose"
+                    },
+                    "title": "Prioritize work email"
+                },
+                {
+                    "action": {
+                        "id": "core:xmn9ZNv7",
+                        "key": "call_subzap",
+                        "app": {
+                            "id": "92b8dce2-2a7b-4f88-864a-6c44c17c99b1",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Sub-Zap by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Build reusable Zap components and systems by building and calling \"Sub-Zaps\"."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Call a Sub-Zap",
+                        "description": "Used outside of a Sub-Zap, this will activate a Sub-Zap, which should contain both the \"Start a Sub-Zap\" trigger and \"Return from a Sub-Zap\" action."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "zap_id": "339400711",
+                        "account_id": "15834101",
+                        "Contact Email": "{{339400735__output}}",
+                        "Contact information: Full Name": "",
+                        "Contact information: Job Title": "",
+                        "Contact information: Last Name": "{{339400728__last_name}}",
+                        "Contact information: First Name": "{{339400728__first_name}}",
+                        "Contact information: Company Name": "",
+                        "Contact information: Phone Number": "{{339400728__phone_number}}",
+                        "Contact information: Employment Role": "{{339400728__Role}}",
+                        "Contact information: Number of Employees": "{{339400728__Company size}}",
+                        "Contact information: Employment Seniority": "{{339400728__Job level}}"
+                    },
+                    "title": null
+                }
+            ]
+        },
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000339400727",
+            "is_enabled": false,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-16T11:25:10+00:00",
+            "title": "Meta (Facebook & Instagram) → HubSpot [Unified lead capture]",
+            "links": {
+                "html_editor": "https://zapier.com/editor/339400727?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": {
+                        "id": "core:p7vDA316",
+                        "key": "lead",
+                        "app": {
+                            "id": "53f87517-7488-459c-82fa-31bd53868756",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/f407c31b217aac6e0cd4171092d53a8c_3.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": "https://zapier.com/switch-account?account=15834101&next=https%3A%2F%2Fzapier.com%2Fengine%2Fauth%2Fstart%2FFacebookLeadsCLIAPI%25402.0.1%3Fredirect%3Dhttps%253A%252F%252Fapi.zapier.com%252Fv2%252Fauthentications%252Fredirect"
+                            },
+                            "action_types": [
+                                "READ"
+                            ],
+                            "title": "Facebook Lead Ads",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/f407c31b217aac6e0cd4171092d53a8c_3.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/f407c31b217aac6e0cd4171092d53a8c_3.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/f407c31b217aac6e0cd4171092d53a8c_3.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/f407c31b217aac6e0cd4171092d53a8c_3.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "1878f3",
+                            "categories": [
+                                {
+                                    "slug": "ads-conversion"
+                                },
+                                {
+                                    "slug": "facebook"
+                                }
+                            ],
+                            "description": "Facebook lead ads make signing up for business information easy for people and more valuable for businesses. The Facebook lead ad app is useful for marketers who want to automate actions on their leads."
+                        },
+                        "type": "action",
+                        "action_type": "READ",
+                        "is_instant": true,
+                        "title": "New Lead",
+                        "description": "Triggers when a new lead is created."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "form": "",
+                        "page": "YOUR_FACEBOOK_PAGE_ID"
+                    },
+                    "title": null
+                },
+                {
+                    "action": {
+                        "id": "core:xmn9ZNv7",
+                        "key": "call_subzap",
+                        "app": {
+                            "id": "92b8dce2-2a7b-4f88-864a-6c44c17c99b1",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Sub-Zap by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Build reusable Zap components and systems by building and calling \"Sub-Zaps\"."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Call a Sub-Zap",
+                        "description": "Used outside of a Sub-Zap, this will activate a Sub-Zap, which should contain both the \"Start a Sub-Zap\" trigger and \"Return from a Sub-Zap\" action."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "zap_id": "339400711",
+                        "account_id": "15834101",
+                        "Contact Email": "{{339400727__email}}",
+                        "Contact activity: Message": "",
+                        "Contact information: Full Name": "{{339400727__full_name}}",
+                        "Contact information: Job Title": "",
+                        "Contact information: Last Name": "",
+                        "Contact information: First Name": "",
+                        "Contact information: Company Name": "",
+                        "Contact information: Phone Number": "",
+                        "Contact information: Employment Role": "",
+                        "Social media information: LinkedIn URL": "",
+                        "Contact information: Number of Employees": "",
+                        "Contact information: Employment Seniority": ""
+                    },
+                    "title": null
+                }
+            ]
+        },
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000339400726",
+            "is_enabled": false,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-16T11:25:10+00:00",
+            "title": "G2 → HubSpot [Unified lead capture]",
+            "links": {
+                "html_editor": "https://zapier.com/editor/339400726?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": null,
+                    "authentication": null,
+                    "inputs": {},
+                    "title": null
+                },
+                {
+                    "action": {
+                        "id": "core:xmn9ZNv7",
+                        "key": "call_subzap",
+                        "app": {
+                            "id": "92b8dce2-2a7b-4f88-864a-6c44c17c99b1",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Sub-Zap by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Build reusable Zap components and systems by building and calling \"Sub-Zaps\"."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Call a Sub-Zap",
+                        "description": "Used outside of a Sub-Zap, this will activate a Sub-Zap, which should contain both the \"Start a Sub-Zap\" trigger and \"Return from a Sub-Zap\" action."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "zap_id": "339400711",
+                        "account_id": "15834101",
+                        "Contact Email": "{{339400726__email}}",
+                        "Contact activity: Message": "{{339400726__message}}",
+                        "Contact information: Job Title": "{{339400726__extra__title}}",
+                        "Contact information: Last Name": "{{339400726__last_name}}",
+                        "Contact information: First Name": "{{339400726__first_name}}",
+                        "Contact information: Company Name": "{{339400726__company}}",
+                        "Contact information: Phone Number": "{{339400726__phone}}",
+                        "Contact information: Employment Role": "",
+                        "Social media information: LinkedIn URL": "",
+                        "Contact information: Number of Employees": "{{339400726__company_size}}",
+                        "Contact information: Employment Seniority": ""
+                    },
+                    "title": null
+                }
+            ]
+        },
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000339400725",
+            "is_enabled": true,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-19T16:22:42+00:00",
+            "title": "Zapier Interface → HubSpot [Unified lead capture]",
+            "links": {
+                "html_editor": "https://zapier.com/editor/339400725?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": {
+                        "id": "core:Z6Z0elo7",
+                        "key": "new_form_submission",
+                        "app": {
+                            "id": "1129b0d3-c561-48ad-98ca-dc9e2e69fb8d",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/c7ed9691c53b602419408c5eba12dd58.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "SEARCH",
+                                "SEARCH_OR_WRITE",
+                                "WRITE"
+                            ],
+                            "title": "Zapier Interfaces",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/c7ed9691c53b602419408c5eba12dd58.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/c7ed9691c53b602419408c5eba12dd58.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/c7ed9691c53b602419408c5eba12dd58.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/c7ed9691c53b602419408c5eba12dd58.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "FF4F00",
+                            "categories": [
+                                {
+                                    "slug": "app-builder"
+                                },
+                                {
+                                    "slug": "crm"
+                                },
+                                {
+                                    "slug": "forms"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Instantly build dynamic interfaces that connect to Zaps and a data source (like Tables). Interfaces gives you a drag-and-drop way to build visual workflows for any business process, without writing code."
+                        },
+                        "type": "action",
+                        "action_type": "READ",
+                        "is_instant": true,
+                        "title": "Form Submission Created",
+                        "description": "Triggers when a new form submission is created."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "formId": "cmj8hx8y4001k2crikjn1eyi4",
+                        "pageId": "cmj8hx8k7001uhj7ru1jep93p",
+                        "projectId": "cmj8hx7xv003gvf7vo3xjoefl"
+                    },
+                    "title": null
+                },
+                {
+                    "action": {
+                        "id": "core:xmn9ZNv7",
+                        "key": "call_subzap",
+                        "app": {
+                            "id": "92b8dce2-2a7b-4f88-864a-6c44c17c99b1",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Sub-Zap by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Build reusable Zap components and systems by building and calling \"Sub-Zaps\"."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Call a Sub-Zap",
+                        "description": "Used outside of a Sub-Zap, this will activate a Sub-Zap, which should contain both the \"Start a Sub-Zap\" trigger and \"Return from a Sub-Zap\" action."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "zap_id": "339400711",
+                        "account_id": "15834101",
+                        "Contact Email": "{{339400725__values__cmj8hx8zk001q2cri65kqsdbw}}",
+                        "Contact activity: Message": "{{339400725__values__cmj8hx93g001w2crivk2f12s4}}",
+                        "Contact information: Full Name": "{{339400725__values__cmj8hx929001s2cri626b9bzw}}",
+                        "Contact information: Job Title": "{{339400725__values__cmj8hx92r001u2cri7yt52gor}}",
+                        "Contact information: Last Name": "",
+                        "Contact information: First Name": "",
+                        "Contact information: Company Name": "{{339400725__values__cmj8hx93h001y2cri3zc427qk}}"
+                    },
+                    "title": null
+                }
+            ]
+        },
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000339400711",
+            "is_enabled": false,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-16T11:43:19+00:00",
+            "title": "Catch all → HubSpot [Unified lead capture][Original]",
+            "links": {
+                "html_editor": "https://zapier.com/editor/339400711?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": {
+                        "id": "core:264DRqQ6",
+                        "key": "start_subzap",
+                        "app": {
+                            "id": "92b8dce2-2a7b-4f88-864a-6c44c17c99b1",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Sub-Zap by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Build reusable Zap components and systems by building and calling \"Sub-Zaps\"."
+                        },
+                        "type": "action",
+                        "action_type": "READ",
+                        "is_instant": true,
+                        "title": "Start a Sub-Zap",
+                        "description": "Triggers when an outside Zap calls this Sub-Zap. Always used inside of a Sub-Zap. A later step in the Sub-Zap should be the \"Return from a Sub-Zap\" action."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "input_list": [
+                            "Contact Email",
+                            "Contact information: First Name",
+                            "Contact information: Last Name",
+                            "Contact information: Full Name",
+                            "Contact information: Job Title",
+                            "Contact information: Employment Role",
+                            "Contact information: Employment Seniority",
+                            "Contact information: Company Name",
+                            "Contact information: Number of Employees",
+                            "Contact information: Phone Number",
+                            "Social media information: LinkedIn URL",
+                            "Contact activity: Message"
+                        ]
+                    },
+                    "title": "Sub-Zap to catch leads from advertising sources"
+                },
+                {
+                    "action": {
+                        "id": "01929fad-d3dd-62c2-52ed-7868d5fcc691",
+                        "key": "01929fad-d3dd-62c2-52ed-7868d5fcc691",
+                        "app": {
+                            "id": "c8d58707-81bb-4a1c-acd0-73ad67d28217",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Code by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4a00",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Write custom Python or Javascript code in response to any data from any service! Transform, mutate, customize or even do custom HTTP in a native and familiar environment."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Run Javascript",
+                        "description": "Run Javascript code *This is an advanced action!* Uses the latest supported version of Node."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "input": {
+                            "fullName": "{{339400711__Contact information: Full Name}}",
+                            "contactInformationLastName": "{{339400711__Contact information: Last Name}}",
+                            "contactInformationFirstName": "{{339400711__Contact information: First Name}}"
+                        },
+                        "code": "// Normalize a field if it contains \"missing sample data\"\nfunction normalizeField(fieldValue) {\n  if (typeof fieldValue === \"string\" && fieldValue.trim().toLowerCase() === \"missing sample data\") {\n    return \"\";\n  }\n  return fieldValue || \"\";\n}\n\n// Input data\nlet fullName = normalizeField(inputData.fullName);\nlet givenFirst = normalizeField(inputData.contactInformationFirstName);\nlet givenLast = normalizeField(inputData.contactInformationLastName);\n\n// Default to the given first/last if they exist\nlet firstName = givenFirst;\nlet lastName = givenLast;\n\n// Only run the name splitting if both are empty\nif (!givenFirst && !givenLast) {\n  const nameParts = fullName.trim().split(/\\s+/);\n  \n  if (nameParts.length === 1) {\n    firstName = nameParts[0];\n    lastName = \"\";\n  } else {\n    firstName = nameParts[0];\n    lastName = nameParts.slice(1).join(\" \");\n  }\n}\n\nreturn {\n  \"Standardized First Name\": firstName,\n  \"Standardized Last Name\": lastName\n};"
+                    },
+                    "title": "Standardize name"
+                },
+                {
+                    "action": {
+                        "id": "01929fad-d3dd-62c2-52ed-7868d5fcc691",
+                        "key": "01929fad-d3dd-62c2-52ed-7868d5fcc691",
+                        "app": {
+                            "id": "c8d58707-81bb-4a1c-acd0-73ad67d28217",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Code by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/e6c82d55e682fbb6f94fa5bd9d5026d3.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4a00",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Write custom Python or Javascript code in response to any data from any service! Transform, mutate, customize or even do custom HTTP in a native and familiar environment."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Run Javascript",
+                        "description": "Run Javascript code *This is an advanced action!* Uses the latest supported version of Node."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "input": {
+                            "contactInformationNumberOfEmployees": "{{339400711__Contact information: Number of Employees}}"
+                        },
+                        "code": "const employeesInput = inputData.contactInformationNumberOfEmployees;\n\n// Convert to string to ensure we can use string methods\nlet employeesStr = (employeesInput || \"\").toString().trim();\n\n// Replace \" to \" with a dash for uniform parsing\nif (employeesStr.includes(\" to \")) {\n  employeesStr = employeesStr.replace(\" to \", \"-\");\n}\n\n// If blank, \"missing sample data\", or no dash, return blank\nif (!employeesStr || employeesStr === \"missing sample data\" || !employeesStr.includes('-')) {\n  return { \"Standardized Employees Range\": \"\" };\n}\n\nconst [minStr] = employeesStr.split('-');\nconst min = Number(minStr);\n\n// If not a number, return blank\nif (isNaN(min)) {\n  return { \"Standardized Employees Range\": \"\" };\n}\n\nlet outputRange = \"\";\nif (min >= 1 && min <= 5) {\n  outputRange = \"1-5\";\n} else if (min > 5 && min <= 25) {\n  outputRange = \"5-25\";\n} else if (min > 25 && min <= 50) {\n  outputRange = \"25-50\";\n} else if (min > 50 && min <= 100) {\n  outputRange = \"50-100\";\n} else if (min > 100 && min <= 500) {\n  outputRange = \"100-500\";\n} else if (min > 500 && min <= 1000) {\n  outputRange = \"500-1000\";\n} else if (min > 1000) {\n  outputRange = \"1000+\";\n} else {\n  outputRange = \"\";\n}\n\nreturn { \"Standardized Employees Range\": outputRange };"
+                    },
+                    "title": "Standardize number of employees"
+                },
+                {
+                    "action": {
+                        "id": "core:wmJrnwdm",
+                        "key": "get_completion",
+                        "app": {
+                            "id": "613301b6-1022-41d0-abf2-0686bd6629e5",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "WRITE"
+                            ],
+                            "title": "AI by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "ai-assistants"
+                                }
+                            ],
+                            "description": "Smart task and text handling powered by a flexible AI. Create text prompts to perform standard tasks like extracting lead (or other) data or answer discrete questions like \"where should this message be routed?\". Or, create your own!"
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Analyze and Return Data",
+                        "description": "Extract data, analyze information, generate content — and more"
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "model_id": "openai/gpt-4o-mini",
+                        "provider_id": "openai",
+                        "instructions": "You are a job classification expert.\n\nGiven a role and list of categories, return the single best matching category (all lowercase). If the provided role is blank or “missing sample data”, return nothing. \n\n# Role\n{{339400711__Contact information: Employment Role}}\n\n# Categories\naccounting\nadministrative\nbusiness_development\ncommunications\nconsulting\ncustomer_service\ndesign\neducation\nentrepreneurship\nfinance\nhealth_professional\nhuman_resources\ninformation_technology\nlegal\nmarketing\noperations\nproduct\nproject_management\npublic_relations\nquality_assurance\nreal_estate\nrecruiting\nresearch\nsales\nsupport\nretired\n\n# Examples\nInput: Marketing\nOutput: marketing\n\nInput: Employment Role: Engineer\nOutput: information_technology\n\nInput: missing sample data\nOutput:\n\nInput: (empty input)\nOutput:",
+                        "outputSchema": {
+                            "Standardized Employment Role": "outputs a single, lowercase category name that aligns the provided employment role with a predefined list of job categories. If the input role is blank, null, or contains “missing sample data,” this field will return an empty value."
+                        },
+                        "isOutputArray": "false",
+                        "authentication_id": "0"
+                    },
+                    "title": "Standardize employment role"
+                },
+                {
+                    "action": {
+                        "id": "core:wmJrnwdm",
+                        "key": "get_completion",
+                        "app": {
+                            "id": "613301b6-1022-41d0-abf2-0686bd6629e5",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "WRITE"
+                            ],
+                            "title": "AI by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/16b431cfbaf74ace3fb227afbe289582.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "ai-assistants"
+                                }
+                            ],
+                            "description": "Smart task and text handling powered by a flexible AI. Create text prompts to perform standard tasks like extracting lead (or other) data or answer discrete questions like \"where should this message be routed?\". Or, create your own!"
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Analyze and Return Data",
+                        "description": "Extract data, analyze information, generate content — and more"
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "model_id": "openai/gpt-4o-mini",
+                        "provider_id": "openai",
+                        "instructions": "You are a job seniority classification expert.\n\nGiven the employment seniority input, and list of standardized seniority levels, return the single best matching seniority level (all lowercase). If the provided seniority input is blank or “missing sample data”, return nothing.\n\n# Seniority input\n{{339400711__Contact information: Employment Seniority}}\n\n# list of standardized seniority levels\n* vp\n* director\n* entry\n* executive\n* manager\n* owner\n* partner\n* senior\n* employee\n\n# Examples\nInput: Employment Seniority: Vice President\nOutput: vp\n\nInput: Employment Seniority: Director of Operations\nOutput: director\n\nInput: Employment Seniority: Intern\nOutput: entry\n\nInput: Employment Seniority: CEO\nOutput: executive\n\nInput: Employment Seniority: Manager, HR\nOutput: manager\n\nInput: Employment Seniority: Business Owner\nOutput: owner\n\nInput: Employment Seniority: Co-Founder\nOutput: partner\n\nInput: Employment Seniority: Senior Software Engineer\nOutput: senior\n\nInput: Employment Seniority: Team Member\nOutput: employee\n\nInput: Employment Seniority: missing sample data\nOutput:\n\nInput: (empty input)\nOutput:",
+                        "outputSchema": {
+                            "Standardized Employment Seniority": "outputs a single, lowercase seniority level that aligns the provided input with a predefined list of standardized seniority levels. If the input is blank, null, or contains “missing sample data,” this field will return an empty value."
+                        },
+                        "isOutputArray": "false",
+                        "authentication_id": "0"
+                    },
+                    "title": "Standardize employment seniority"
+                },
+                {
+                    "action": {
+                        "id": "core:Q7dbR1R6",
+                        "key": "upsert_contact",
+                        "app": {
+                            "id": "1e4fcbf4-d80b-4ec3-b33b-c085f1ecbbaa",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/developer/cde9764aa8d19fdd6d591455dbe5a78d.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": "https://zapier.com/switch-account?account=15834101&next=https%3A%2F%2Fzapier.com%2Fengine%2Fauth%2Fstart%2FHubSpotCLIAPI%25401.12.4%3Fredirect%3Dhttps%253A%252F%252Fapi.zapier.com%252Fv2%252Fauthentications%252Fredirect"
+                            },
+                            "action_types": [
+                                "READ",
+                                "SEARCH",
+                                "SEARCH_OR_WRITE",
+                                "WRITE"
+                            ],
+                            "title": "HubSpot",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/developer/cde9764aa8d19fdd6d591455dbe5a78d.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/developer/cde9764aa8d19fdd6d591455dbe5a78d.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/developer/cde9764aa8d19fdd6d591455dbe5a78d.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/developer/cde9764aa8d19fdd6d591455dbe5a78d.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "f7761f",
+                            "categories": [
+                                {
+                                    "slug": "marketing-automation"
+                                }
+                            ],
+                            "description": "HubSpot is your all-in-one stop for all of your marketing software needs."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Create or Update Contact",
+                        "description": "Creates a new contact or updates an existing contact based on email address."
+                    },
+                    "authentication": null,
+                    "inputs": {
+                        "zip": "",
+                        "email": "{{339400711__Contact Email}}",
+                        "phone": "{{339400711__Contact information: Phone Number}}",
+                        "address": "",
+                        "company": "{{339400711__Contact information: Company Name}}",
+                        "country": "",
+                        "hs_role": "{{339400717__Standardized Employment Role}}",
+                        "message": "{{339400711__Contact activity: Message}}",
+                        "jobtitle": "{{339400711__Contact information: Job Title}}",
+                        "lastname": "{{339400715__Standardized Last Name}}",
+                        "firstname": "{{339400715__Standardized First Name}}",
+                        "work_email": "",
+                        "hs_pipeline": "",
+                        "company_size": "",
+                        "hs_seniority": "{{339400718__Standardized Employment Seniority}}",
+                        "numemployees": "{{339400716__Standardized Employees Range}}",
+                        "field_of_study": "",
+                        "hs_linkedin_url": "{{339400711__Social media information: LinkedIn URL}}",
+                        "hs_latest_source": "",
+                        "hs_facebook_ad_clicked": "",
+                        "hs_latest_source_timestamp": "",
+                        "hs_time_between_contact_creation_and_deal_close": "",
+                        "hs_time_between_contact_creation_and_deal_creation": ""
+                    },
+                    "title": "Create or Update Contact in HubSpot"
+                },
+                {
+                    "action": {
+                        "id": "core:DmAQqYom",
+                        "key": "return_subzap",
+                        "app": {
+                            "id": "92b8dce2-2a7b-4f88-864a-6c44c17c99b1",
+                            "type": "app",
+                            "image": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&ixlib=python-3.0.0&q=50",
+                            "links": {
+                                "connect_new_authentication": null
+                            },
+                            "action_types": [
+                                "READ",
+                                "WRITE"
+                            ],
+                            "title": "Sub-Zap by Zapier",
+                            "images": {
+                                "url_16x16": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=16&ixlib=python-3.0.0&q=50&w=16",
+                                "url_32x32": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=32&ixlib=python-3.0.0&q=50&w=32",
+                                "url_64x64": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=64&ixlib=python-3.0.0&q=50&w=64",
+                                "url_128x128": "https://zapier-images.imgix.net/storage/services/ee2c5384e620f71e829f10fb061356a5.png?auto=format%2Ccompress&fit=crop&h=128&ixlib=python-3.0.0&q=50&w=128"
+                            },
+                            "hex_color": "ff4f01",
+                            "categories": [
+                                {
+                                    "slug": "developer-tools"
+                                },
+                                {
+                                    "slug": "zapier-tools"
+                                }
+                            ],
+                            "description": "Build reusable Zap components and systems by building and calling \"Sub-Zaps\"."
+                        },
+                        "type": "action",
+                        "action_type": "WRITE",
+                        "is_instant": false,
+                        "title": "Return From a Sub-Zap",
+                        "description": "Used inside of a Sub-Zap, this is the final step of a Sub-Zap and should be after the \"Start a Sub-Zap\" trigger."
+                    },
+                    "authentication": null,
+                    "inputs": {},
+                    "title": "Return From Sub-Zap"
+                }
+            ]
+        },
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000338401757",
+            "is_enabled": false,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-15T15:43:16+00:00",
+            "title": "Untitled Zap",
+            "links": {
+                "html_editor": "https://zapier.com/editor/338401757?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": null,
+                    "authentication": null,
+                    "inputs": {},
+                    "title": null
+                },
+                {
+                    "action": null,
+                    "authentication": null,
+                    "inputs": {},
+                    "title": null
+                }
+            ]
+        },
+        {
+            "type": "zap",
+            "id": "00000000-0000-c000-8000-000338401630",
+            "is_enabled": false,
+            "last_successful_run_date": null,
+            "updated_at": "2025-12-10T09:35:18+00:00",
+            "title": "Untitled Zap",
+            "links": {
+                "html_editor": "https://zapier.com/editor/338401630?utm_source=partner&utm_medium=embed&utm_campaign=partner_api&referer=None"
+            },
+            "steps": [
+                {
+                    "action": null,
+                    "authentication": null,
+                    "inputs": {},
+                    "title": null
+                },
+                {
+                    "action": null,
+                    "authentication": null,
+                    "inputs": {},
+                    "title": null
+                }
+            ]
+        }
+    ]
+}
